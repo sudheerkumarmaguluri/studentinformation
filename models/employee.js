@@ -17,8 +17,8 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 student = new Schema({
   admissionnumber:String,
-  id:String,
-  name:String,
+  stid:{type:String},
+  name:{type:String,required:true},
   lastname:String,
   mothername:String,
   fathername: String,

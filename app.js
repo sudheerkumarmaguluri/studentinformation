@@ -5,12 +5,14 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan')
 var multer = require('multer');
 var bodyParser=require('body-parser')
-
+var cors = require('cors')
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var  mongoose=require('mongoose')
 
 var app = express();
+app.use(cors())
+
 mongoose.connect('mongodb://sudheermaguluri:M.s9640616462@ds125469.mlab.com:25469/mydb', function (err, db) {
   if (db)
     console.log("connected")
@@ -53,6 +55,7 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+  res.send({error:err})
 });
 
 module.exports = app;
