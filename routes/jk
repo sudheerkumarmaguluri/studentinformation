@@ -1,0 +1,80 @@
+/*router.get('/', function(req, res, next) {
+  winston.log('info',"this is starting page");
+  res.render('index', { title: 'apollo hospital' });
+});*/
+
+/*router.get('/results',function (req,res,next) {
+  results.find({}, function(err, users) {
+    if (err) throw err;
+    winston.log('info',"check all data.....")
+
+    res.render('results',{results:users})
+
+  });
+
+})
+router.post('/addresults',function (req,res,next) {
+
+
+
+ var total=parseInt(req.body.englishmarkes)+parseInt(req.body.mathesmarkes)+parseInt(req.body.sciencemarkes)+parseInt(req.body.historymarkes)+parseInt(req.body.locallanguagemarkes)
+  var percentage=total/5;
+
+  results.update({"id":req.body.id}, { $set: { "english": req.body.englishmarkes,
+      "mathes": req.body.mathesmarkes,
+      "science": req.body.sciencemarkes,
+      "history": req.body.historymarkes,
+      "locallanguage":req.body.locallanguagemarkes,
+      "total":total,
+      "percentage": percentage } }, { upsert: true },  function(err, raw) {
+    if (err) {
+      res.send(err);
+    }
+    else {
+      console.log(total)
+      res.redirect('/results');
+    }
+    });
+
+ console.log(req.body)
+
+})
+router.get('/totalinfo', function(req, res, next) {
+  results.find({}, function(err, data){
+    console.log(">>>> " + data );
+    res.render('totalinfo',{data:data})
+  });
+});
+router.get('/deletedocument/:id', function(req, res, next) {
+  /*console.log(req.params.id)
+  results.remove({id:req.params.id},
+   function(err ,data){
+    if(err)
+    {console.log(err)}
+    else
+    console.log(">>>> "  +JSON.stringify(data));
+    res.send("deleted successfully..")
+  });
+*/
+/*
+  results.update({"id": req.params.id}, {
+    $set: {
+      "english": "",
+      "mathes": "",
+      "science": "",
+      "history": "",
+      "locallanguage": "",
+      "total": "",
+      "percentage": ""
+    }
+  }, {upsert: true}, function (err, raw) {
+    if (err) {
+      res.send(err);
+    }
+    else {
+
+      res.send("mrkes deleted successfully.....")
+    }
+
+  });
+})*/

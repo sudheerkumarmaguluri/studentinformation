@@ -1,0 +1,92 @@
+<html>
+<head>
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 50px;
+    }
+
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+<form action="/addresults" method="post" name="markes">
+<table class="table"  id="tableid">
+  <thead>
+  <tr class="table-primary">
+    <th><b>STUDENT ID</b></th>
+    <th><b>STUDENT NAME </b></th>
+    <th><b>ID</b></th>
+
+    <th><b>ENGLISH</b></th>
+    <th><b>MATHES</b></th>
+    <th><b>SCIENCE</b></th>
+    <th><b>LOCAL LANGUAGE</b></th>
+
+    <th><b>HISTORY</b></th>
+    <th><b>TOTAL MARKES</b></th>
+    <th><b>PERCENTAGE</b></th>
+
+
+    <th><b>ADD MARKES</b></th>
+    <th><b>DELETE</b></th>
+
+
+
+  </tr>
+  </thead>
+
+
+
+
+
+
+  {{#each results}}
+    <tr  class="table-success">
+      <form action="/addresults" method="post">
+      <td>{{this.id}}</td>
+      <td>{{this.name}}</td>
+
+        <td><input type="text" value="{{this.id}}" name="id"></td>
+
+        <td><input type="text" value="{{this.english}}" name="englishmarkes"></td>
+      <td><input type="text" value="{{this.mathes}}" name="mathesmarkes"></td>
+      <td><input type="text" value="{{this.science}}" name="sciencemarkes"></td>
+      <td><input type="text" value="{{this.locallanguage}}" name="locallanguagemarkes"> </td>
+
+      <td><input type="text" value="{{this.history}}" name="historymarkes"> </td>
+        <td><input type="text" value="{{this.total}}" name="total" disabled> </td>
+        <td><input type="text" value="{{this.percentage}}" name="percentage" disabled> </td>
+
+
+      <td><input type="submit"  value="add markes">
+      </form>
+      <form action="/deletedocument/{{this.id}}" method="get">
+
+        <td><input type="submit"  value="delete markes"></td>
+      </form>
+
+
+</tr>
+
+
+
+{{/each}}
+</table>
+  <form action="/totalinfo" >
+    <td><input type="submit"  value="total info"></td>
+  </form>
+</form>
+</body>
+</html>

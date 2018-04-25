@@ -1,0 +1,72 @@
+<html>
+<head>
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 50px;
+    }
+
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+  </style>
+</head>
+<body>
+  <table class="table_class" id="tableid" >
+    <thead>
+    <tr>
+      <th><b>STUDENT ID</b></th>
+      <th><b>STUDENT NAME </b></th>
+
+      <th><b>ENGLISH</b></th>
+      <th><b>MATHES</b></th>
+      <th><b>SCIENCE</b></th>
+      <th><b>LOCAL LANGUAGE</b></th>
+
+      <th><b>HISTORY</b></th>
+      <th><b> TOTAL MARKES</b></th>
+<th><b>PERCENTAGE</b></th>
+
+
+
+    </tr>
+    </thead>
+
+
+
+
+
+
+    {{#each data}}
+      <tr>
+          <td>{{this.id}}</td>
+          <td>{{this.name}}</td>
+
+          <td>{{this.english}}</td>
+        <td>{{this.mathes}}</td>
+        <td>{{this.science}}</td>
+        <td>{{this.locallanguage}}</td>
+        <td>{{this.history}}</td>
+        <td><font color="red">{{this.total}}</font></td>
+        <td><font color="blue">{{this.percentage}}<span>&#37;</span></font></td>
+
+
+
+
+      </tr>
+
+
+
+    {{/each}}
+  </table>
+
+</form>
+</body>
+</html>
